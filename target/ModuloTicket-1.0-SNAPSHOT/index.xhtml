@@ -60,18 +60,34 @@
                     <p:inputText id="resumenId" value="#{creacionBean.ticket.resumen}" />
                     <p:outputLabel value="Descripcion" />
                     <p:inputTextarea rows="6" cols="33" value="#{creacionBean.ticket.descripcion}"/>
-                    <p:outputLabel for="@next" value="Prioridad" />
-                    <p:selectOneMenu id="prioridadId"  style="width:125px">
-                        <f:selectItem itemLabel="Select One" itemValue="" />
-                        <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                    <p:outputLabel value="Prioridad" />
+                    <p:selectOneMenu id="prioridadId" value="#{creacionBean.prioridad}" style="width:125px">
+                        <f:selectItem itemLabel="Seleccionar" itemValue="" noSelectionOption="true" />
+                        <f:selectItems var="prio" 
+                                       value="#{creacionBean.prioridades}" 
+                                       itemLabel="#{prio.nombre}"
+                                       itemValue="#{prio}"/>
                     </p:selectOneMenu>
-                    <p:outputLabel for="@next" value="Responsable" />
-                    <p:selectOneMenu id="responsableId" style="width:125px">
-                        <f:selectItem itemLabel="Select One" itemValue="" />
-                        <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                    <p:outputLabel value="Responsable" />
+                    <p:selectOneMenu id="responsableId" value="#{creacionBean.responsable}" style="width:125px">
+                        <f:selectItem itemLabel="Seleccionar" itemValue="" noSelectionOption="true" />
+                        <f:selectItems var="resp" 
+                                       value="#{creacionBean.responsables}" 
+                                       itemLabel="#{resp.nombre}"
+                                       itemValue="#{resp}"/>
                     </p:selectOneMenu>
-                    <p:commandButton value="Crear Ticket" />
-                    <p:commandButton value="Cancelar" />
+                    <p:commandButton value="Crear Ticket" 
+                                     id="crearId"
+                                     process="@this"
+                                     update="@form"
+                                     immediate="true"
+                                      />
+                    <p:commandButton value="Cancelar"
+                                     id="cancelId"
+                                     process="@this"
+                                     update="@form"
+                                     immediate="true"
+                                     oncomplete="PF('dlg1').hide()"/>
                 </h:panelGrid>
             </p:dialog>
         </h:form>
