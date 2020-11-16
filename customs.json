@@ -1,0 +1,14 @@
+{
+    "elements": {
+        "p:menubar": {},
+        "p:separator": {},
+        "p:inputText": {},
+        "p:menuitem": {},
+        "p:submenu": {},
+        "p:commandButton": {},
+        "p:growl": {},
+        "f:facet": {},
+        "h:form": {}
+    },
+    "attributes": {}
+}

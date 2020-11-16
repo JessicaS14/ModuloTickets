@@ -1,0 +1,11 @@
+com\modulo\gestion\modeloDAO\Ticket.class
+com\modulo\gestion\modeloDAO\TicketPK.class
+com\modulo\gestion\modeloDAO\Responsable.class
+com\modulo\gestion\modeloDAO\Prioridad.class
+com\modulo\gestion\controlador\JAXRSConfiguration.class
+com\modulo\gestion\modelo\JavaEE8Resource.class
+com\modulo\gestion\modelo\Ticket.class
+com\modulo\gestion\bean\CreacionBean.class
+com\modulo\gestion\controlador\Gestion.class
+com\modulo\gestion\controlador\Consultas.class
+com\modulo\gestion\modeloDAO\Estado.class
