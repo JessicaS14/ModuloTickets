@@ -9,6 +9,7 @@ import com.modulo.gestion.controlador.Consultas;
 import com.modulo.gestion.modeloDAO.Estado;
 import com.modulo.gestion.modeloDAO.Ticket;
 import java.util.ArrayList;
+import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
@@ -21,8 +22,13 @@ import javax.inject.Named;
 public class CreacionBean {
     Ticket ticket;
     Consultas consultas = new Consultas();
-    ArrayList<Estado> estados = consultas.consultarEstados();
+    List<Estado> estados;
     Estado estado;
+
+    public CreacionBean() {
+        estados = consultas.consultarEstados();
+    }
+    
     
     public void consultarEstados() {
         estado = new Estado();
@@ -32,11 +38,11 @@ public class CreacionBean {
     public void registrarTicket() {
         ticket = new Ticket();
     }
-    public ArrayList<Estado> getEstados() {
+    public List<Estado> getEstados() {
         return estados;
     }
 
-    public void setEstados(ArrayList<Estado> estados) {
+    public void setEstados(List<Estado> estados) {
         this.estados = estados;
     }
 

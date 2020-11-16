@@ -7,10 +7,12 @@ package com.modulo.gestion.controlador;
 
 import com.modulo.gestion.modeloDAO.Estado;
 import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -18,15 +20,18 @@ import javax.persistence.Query;
  */
 public class Consultas {
 
-    
     EntityManager em;
 
-    ArrayList<Estado> estados;
+    List<Estado> estados;
+    TypedQuery<Estado> consultaEstados;
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.modulo.gestion_ModuloTicket_war_1.0-SNAPSHOTPU");
 
-    public ArrayList<Estado> consultarEstados() {
+    public List<Estado> consultarEstados() {
         try {
-            Query queryEstados = em.createNamedQuery("Estado.findAll");
-            estados = (ArrayList<Estado>) queryEstados.getResultList();
+            em = emf.createEntityManager();
+            consultaEstados = em.createNamedQuery("Estado.findAll", Estado.class);
+            estados = (List<Estado>) consultaEstados.getResultList();
+            em.close();
         } catch (Exception e) {
             System.out.println(e);
         }

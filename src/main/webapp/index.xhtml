@@ -13,10 +13,13 @@
 
             <p:toolbar>
                 <f:facet name="left">
-                    <p:selectOneMenu id="estadosId" value="#{creacionBean.estado.nombre}" style="width:125px">
+                    <p:selectOneMenu id="estadosId" value="#{creacionBean.estado}" style="width:125px">
                         <p:ajax listener="#{creacionBean.consultarEstados()}" update="basicDT" />
                         <f:selectItem itemLabel="Todos" itemValue="" noSelectionOption="true" />
-                        <f:selectItems value="#{creacionBean.estados}" />
+                        <f:selectItems var="est" 
+                                       value="#{creacionBean.estados}" 
+                                       itemLabel="#{est.nombre}"
+                                       itemValue="#{est}"/>
                     </p:selectOneMenu>
                 </f:facet>
 
@@ -67,10 +70,8 @@
                         <f:selectItem itemLabel="Select One" itemValue="" />
                         <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
                     </p:selectOneMenu>
-                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-                        <p:commandButton value="Guardar" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" onclick="#{creacionBean.registrarTicket()}" />
-                        <p:commandButton value="Cancelar" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
-                    </p:confirmDialog>   
+                    <p:commandButton value="Crear Ticket" />
+                    <p:commandButton value="Cancelar" />
                 </h:panelGrid>
             </p:dialog>
         </h:form>
